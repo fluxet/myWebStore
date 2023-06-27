@@ -1,43 +1,7 @@
 import { createSlice, current } from '@reduxjs/toolkit';
 import { getProducts } from './webShopThunks';
 import { normalizeValue } from '../utils';
-
-export enum EAttributes {
-  colors = 'colors',
-  brands = 'brands',
-}
-
-export enum EProductAttributes {
-  color = 'color',
-  brand = 'brand',
-}
-
-export interface IProduct {
-  id: number;
-  name: string;
-  price: number;
-  attributes?: {
-    [EProductAttributes.brand]: string;
-    [EProductAttributes.color]: string;
-  };
-}
-
-export interface ICartProduct extends IProduct {
-  quantity: number
-}
-
-export type TSortParam = 'name' | 'price';
-
-interface IStoreState {
-  allProducts: IProduct[];
-  currentProducts: IProduct[];
-  allFilterParams: {
-    [EAttributes.brands]: string[];
-    [EAttributes.colors]: string[];
-  };
-  cart: ICartProduct[];
-  totalPrice: number;
-}
+import { IStoreState, TSortParam } from '../types';
 
 const initialState: IStoreState = {
   allProducts: [],

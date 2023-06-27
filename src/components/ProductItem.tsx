@@ -1,10 +1,6 @@
 import React from 'react';
-import { IProduct } from '../store/webShopSlice';
 import { configProductImg } from '../../mocks/configProductImg';
-
-interface IProductItemProps {
-  product: IProduct;
-}
+import { IProductItemProps } from '../types';
 
 const ProductItem = ({ product }: IProductItemProps) => {
   const { name, price, attributes } = product;

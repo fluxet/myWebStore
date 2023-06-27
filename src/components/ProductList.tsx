@@ -4,14 +4,9 @@ import { getProducts } from '../store/webShopThunks';
 import { useAppDispatch, useAppSelector } from '../hook';
 import { selectAllProducts, selectCartProducts, selectCurrentProducts } from '../store/webShopSelectors';
 import ProductItem from './ProductItem';
-import { EAttributes, EProductAttributes, IProduct, addToCart, filterProducts, setAllFilterParams, sortProducts } from '../store/webShopSlice';
+import { addToCart, filterProducts, setAllFilterParams, sortProducts } from '../store/webShopSlice';
 import { calculateCartProductsQuantity, getAttributes } from '../utils';
-
-interface IChosenParams {
-  [EAttributes.brands]: string[];
-  [EAttributes.colors]: string[];
-}
-
+import { EAttributes, EProductAttributes, IChosenParams, IProduct } from '../types';
 
 const ProductList: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -26,7 +21,6 @@ const ProductList: React.FC = () => {
   });
 
   const cartProductsQuantity = calculateCartProductsQuantity(cartProducts);
-  console.log('cart products quantity: ', cartProductsQuantity);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -55,7 +49,6 @@ const ProductList: React.FC = () => {
   };
 
   const onProductClick = (product: IProduct) => () => {
-    console.log('clicked product: ', product);
     dispatch(addToCart(product));
   }
 

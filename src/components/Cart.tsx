@@ -5,16 +5,6 @@ import ProductItem from './ProductItem';
 import { Link } from 'react-router-dom';
 import { removeFromCart } from '../store/webShopSlice';
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  attributes?: { // todo remove '?'
-    color: string;
-    type: string;
-  }
-}
-
 const Cart: React.FC = () => {
   const dispatch = useAppDispatch();
   const cartProducts = useAppSelector(selectCartProducts);

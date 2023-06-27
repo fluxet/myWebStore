@@ -1,4 +1,4 @@
-import { EAttributes, EProductAttributes, ICartProduct, IProduct } from "./store/webShopSlice";
+import { EAttributes, EProductAttributes, ICartProduct, IProduct } from "./types";
 
 export const normalizeValue = (value: string | number) => (typeof value === 'string')
   ? value.toLowerCase()
