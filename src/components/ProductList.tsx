@@ -106,7 +106,7 @@ const ProductList: React.FC = () => {
 
         <div className='link link_cart'>
           <Link to="/cart">GO TO CART</Link>
-          {cartProductsCapacity && <div className='products-capacity'>{cartProductsCapacity}</div>}
+          {!!cartProductsCapacity && <div className='products-capacity'>{cartProductsCapacity}</div>}
         </div>
       </div>
 
