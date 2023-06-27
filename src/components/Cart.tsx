@@ -32,9 +32,9 @@ const Cart: React.FC = () => {
         {cartProducts.map((product) => (
           <li key={product.id} className='products__item'>
             <ProductItem product={product} />
-            <div>
+            <div className='item-capacity'>
               <span>capacity:</span>
-              <span>{product.capacity}</span>
+              <span className='item-capacity__number'>{product.capacity}</span>
             </div>
             <button className='btn-cart' onClick={onRemoveFromCartClick(product.id)}>remove from cart</button>
           </li>
@@ -46,10 +46,10 @@ const Cart: React.FC = () => {
         <span>{`${totalPrice} $`}</span>
       </div>
 
-      <div>
+      <div className='link'>
         <Link to="/">Back to Products</Link>
       </div>
-      <div>
+      <div className='link'>
         <Link to="/order">Go to Order</Link>
       </div>
 

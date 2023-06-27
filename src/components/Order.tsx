@@ -5,10 +5,10 @@ const Order: React.FC = () => (
   <div>
     <h1 className='title'>Order: </h1>
 
-    <div>
+    <div className='link'>
       <Link to="/">Back to Products</Link>
     </div>
-    <div>
+    <div className='link'>
       <Link to="/cart">Back to Cart</Link>
     </div>
   </div>

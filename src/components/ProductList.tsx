@@ -2,10 +2,10 @@ import React, { ChangeEventHandler, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getProducts } from '../store/webShopThunks';
 import { useAppDispatch, useAppSelector } from '../hook';
-import { selectAllProducts, selectCurrentProducts } from '../store/webShopSelectors';
+import { selectAllProducts, selectCartProducts, selectCurrentProducts } from '../store/webShopSelectors';
 import ProductItem from './ProductItem';
 import { EAttributes, EProductAttributes, IProduct, addToCart, filterProducts, setAllFilterParams, sortProducts } from '../store/webShopSlice';
-import { getAttributes } from '../utils';
+import { calculateCartProductsCapacity, getAttributes } from '../utils';
 
 interface IChosenParams {
   [EAttributes.brands]: string[];
@@ -17,12 +17,16 @@ const ProductList: React.FC = () => {
   const dispatch = useAppDispatch();
   const allProducts = useAppSelector(selectAllProducts);
   const currentProducts = useAppSelector(selectCurrentProducts);
+  const cartProducts = useAppSelector(selectCartProducts);
   const brands = getAttributes(allProducts, EProductAttributes.brand);
   const colors = getAttributes(allProducts, EProductAttributes.color);
   const [chosenParams, setChosenParams] = useState<IChosenParams>({
     brands: [],
     colors: [],
   });
+
+  const cartProductsCapacity = calculateCartProductsCapacity(cartProducts);
+  console.log('cart products capacity: ', cartProductsCapacity);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -75,8 +79,8 @@ const ProductList: React.FC = () => {
         <div className='controls'>
           <div className='sorting'>
             <h2>Sort by:</h2>
-            <button onClick={onSort('name')}>name</button> {/*todo: change to enum */}
-            <button onClick={onSort('price')}>price</button>
+            <button className='btn-sort' onClick={onSort('name')}>name</button> {/*todo: change to enum */}
+            <button className='btn-sort' onClick={onSort('price')}>price</button>
           </div>
 
           <div className='filtering'>
@@ -99,13 +103,19 @@ const ProductList: React.FC = () => {
             ))}
           </div>
         </div>
+
+        <div className='link link_cart'>
+          <Link to="/cart">GO TO CART</Link>
+          {cartProductsCapacity && <div className='products-capacity'>{cartProductsCapacity}</div>}
+        </div>
       </div>
 
-
-      <div>
-        <Link to="/cart">Cart</Link>
+      <div className='link'>
+        <Link to="/cart">GO TO CART</Link>
       </div>
-      <Link to="/order">Order</Link>
+      <div className='link'>
+        <Link to="/order">GO TO ORDER</Link>
+      </div>
     </div>
   );
 };
