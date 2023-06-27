@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 11",
+    "price": 500,
+    "attributes": {
+      "brand": "Apple",
+      "color": "white",
+      "operatingSystem": "iOS"
+    }
+  },
+  {
+    "id": 2,
+    "name": "iPhone 13",
+    "price": 900,
+    "attributes": {
+      "brand": "Apple",
+      "color": "blue",
+      "operatingSystem": "iOS"
+    }
+  },
+  {
+    "id": 3,
+    "name": "iPhone 14",
+    "price": 1000,
+    "attributes": {
+      "brand": "Apple",
+      "color": "black",
+      "operatingSystem": "iOS"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Galaxy A03",
+    "price": 100,
+    "attributes": {
+      "brand": "Samsung",
+      "color": "red",
+      "operatingSystem": "Android"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Galaxy M12",
+    "price": 400,
+    "attributes": {
+      "brand": "Samsung",
+      "color": "black",
+      "operatingSystem": "Android"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Galaxy M53",
+    "price": 600,
+    "attributes": {
+      "brand": "Samsung",
+      "color": "green",
+      "operatingSystem": "Android"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Redmi 9A",
+    "price": 70,
+    "attributes": {
+      "brand": "Xiaomi",
+      "color": "blue",
+      "operatingSystem": "Android"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Note 10",
+    "price": 350,
+    "attributes": {
+      "brand": "Xiaomi",
+      "color": "orange",
+      "operatingSystem": "Android"
+    }
+  }
+]
