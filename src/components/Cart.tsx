@@ -32,9 +32,9 @@ const Cart: React.FC = () => {
         {cartProducts.map((product) => (
           <li key={product.id} className='products__item'>
             <ProductItem product={product} />
-            <div className='item-capacity'>
-              <span>capacity:</span>
-              <span className='item-capacity__number'>{product.capacity}</span>
+            <div className='item-quantity'>
+              <span>quantity:</span>
+              <span className='item-quantity__number'>{product.quantity}</span>
             </div>
             <button className='btn-cart' onClick={onRemoveFromCartClick(product.id)}>remove from cart</button>
           </li>

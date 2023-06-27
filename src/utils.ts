@@ -12,7 +12,7 @@ export const getAttributes = (products: IProduct[], param: EProductAttributes) =
   return Array.from(attributes);
 }
 
-export const calculateCartProductsCapacity = (products: ICartProduct[]) => {
+export const calculateCartProductsQuantity = (products: ICartProduct[]) => {
 
-  return products.reduce((acc, product) => acc + product.capacity, 0);
+  return products.reduce((acc, product) => acc + product.quantity, 0);
 }

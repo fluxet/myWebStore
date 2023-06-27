@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../hook';
 import { selectAllProducts, selectCartProducts, selectCurrentProducts } from '../store/webShopSelectors';
 import ProductItem from './ProductItem';
 import { EAttributes, EProductAttributes, IProduct, addToCart, filterProducts, setAllFilterParams, sortProducts } from '../store/webShopSlice';
-import { calculateCartProductsCapacity, getAttributes } from '../utils';
+import { calculateCartProductsQuantity, getAttributes } from '../utils';
 
 interface IChosenParams {
   [EAttributes.brands]: string[];
@@ -25,8 +25,8 @@ const ProductList: React.FC = () => {
     colors: [],
   });
 
-  const cartProductsCapacity = calculateCartProductsCapacity(cartProducts);
-  console.log('cart products capacity: ', cartProductsCapacity);
+  const cartProductsQuantity = calculateCartProductsQuantity(cartProducts);
+  console.log('cart products quantity: ', cartProductsQuantity);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -106,7 +106,7 @@ const ProductList: React.FC = () => {
 
         <div className='link link_cart'>
           <Link to="/cart">GO TO CART</Link>
-          {!!cartProductsCapacity && <div className='products-capacity'>{cartProductsCapacity}</div>}
+          {!!cartProductsQuantity && <div className='products-quantity'>{cartProductsQuantity}</div>}
         </div>
       </div>
 

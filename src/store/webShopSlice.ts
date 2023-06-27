@@ -23,7 +23,7 @@ export interface IProduct {
 }
 
 export interface ICartProduct extends IProduct {
-  capacity: number
+  quantity: number
 }
 
 export type TSortParam = 'name' | 'price';
@@ -75,19 +75,19 @@ const webShopSlice = createSlice({
       const selectedProductInCart = state.cart.find(({ id }) => selectedProduct.id === id);
 
       if (selectedProductInCart) {
-        selectedProductInCart.capacity += 1;
+        selectedProductInCart.quantity += 1;
       } else {
-        state.cart.push({ ...selectedProduct, capacity: 1 });
+        state.cart.push({ ...selectedProduct, quantity: 1 });
       }
 
       state.totalPrice += selectedProduct.price;
     },
     removeFromCart: (state, action) => {
       const selectedProductInCart = state.cart.find(({ id }) => id === action.payload);
-      selectedProductInCart.capacity -= 1;
+      selectedProductInCart.quantity -= 1;
       state.totalPrice -= selectedProductInCart.price;
 
-      if (!selectedProductInCart.capacity) {
+      if (!selectedProductInCart.quantity) {
         state.cart = state.cart.filter(({ id }) => id !== action.payload);
       }
     }
