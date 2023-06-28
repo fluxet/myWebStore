@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hook';
-import { selectCartProducts, selectCurrentProducts, selectTotalPrice } from '../store/webShopSelectors';
+import { selectCartProducts, selectTotalPrice } from '../store/webShopSelectors';
 import ProductItem from './ProductItem';
 import { Link } from 'react-router-dom';
 import { removeFromCart } from '../store/webShopSlice';
